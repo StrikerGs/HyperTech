@@ -349,16 +349,65 @@ footer .footer-text a{
 
 /* define as propriedades das imagens de titulo */
 
-.img-titulo{
+.img-titulo-sobre{
 
     background-size: cover;
+  
+}
+
+.img-titulo-sobre img{
+
+   width: 100%;
 
 }
 
-.img-titulo img{
+/*definindo as propriedades da pagina sobre nós*/
 
-    width: 220vh;
-    height: 50vh;
-   
+#container-sobre{
+
+    
+    background-color: #fff;
+    width: 100%;
+    height: 80%;
+    float: left;
+
+}
+
+#txt-sobre{
+
+    width: 40%;
+    position: relative;
+    padding: 5%;
+    float: left;
+
+}
+
+#txt-sobre p{
+
+    width: 100%;
+    position: relative;
+    float: left;
+
+}
+
+#txt-sobre dl{
+
+    width: 50%;
+
+}
+
+#img-sobre{
+
+    width: 35%;
+    position: relative;
+    padding: 2%;
+    float: left;
+    margin-left: 15%;
+
+}
+
+#img-sobre img{
+
+    width: 100%;
 
 }
