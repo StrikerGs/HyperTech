@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+}
+
+.principal{
+    width: 100vw;
+    height: 110vh;
+    background: rgb(0, 0, 0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.lado-esquerdo{
+    width: 50vw;
+    height: 100hv;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.lado-esquerdo > h1 {
+    
+
+    color: rgb(187, 248, 248);
+}
+
+.logo-lado-esquerdo{
+      width: 35vw;
+       height: 60vh;
+}
+
+.lado-direito{
+    width: 50vw;
+    height: 100h;v
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  
+}
+
+.area-login{
+    width: 60%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: rgb(252, 251, 251);
+    border-radius: 20px;
+    box-shadow: 10px 10px 40px rgb(77, 73, 73);
+    
+}
+
+.area-login > h1 {
+    
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+
+}
+
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: rgb(180, 160, 160);
+    color: black;
+    font-size: 13pt;
+    box-shadow: 10px 10px 40px rgb(95, 89, 89);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > input::placeholder{
+    color: black;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 9px;
+    background: hsl(248, 39%, 57%);
+    text-transform: uppercase;
+    outline: none;
+    font-weight: 800;
+    letter: spacing 3px;
+    cursor: pointer;
+    box-shadow: 10px 10px 30px hsl(248, 39%, 57%);
+}
+
+@media only screen and (max-width:950px){
+    .area-login{
+        width: 85%;
+    }
+}
