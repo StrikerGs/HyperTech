@@ -62,6 +62,19 @@ body {
   font-weight: 900;
 }
 
+#slider .carousel-item {
+  position: relative;
+  margin-left: 5em;
+}
+
+#slider .carousel-control-prev-icon {
+  background-color: black;
+}
+
+#slider .carousel-control-next-icon {
+  background-color: black;
+}
+
 
 #servicos a.destaque {
   display: block;

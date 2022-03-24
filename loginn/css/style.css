@@ -9,6 +9,7 @@ body {
 }
 
 nav ul li{
+    position: absolute;
     float: left; 
     color: #fff;
     width: auto;
@@ -16,18 +17,41 @@ nav ul li{
     font-size: 1.5em;
     font-family: "verdana";
     list-style: none; 
-    margin-top: -12em;
-    margin-left: -5em;
+    margin-top: -13em;
+    margin-left: 12em;
 }
 
-nav ul li a{
+nav ul li{
     text-decoration: none;
     color: #f0f0ff;
     font-family: helvetica;
 }
 
-nav ul li a:hover{
-    color: #d9e714;
+nav ul li:hover{
+    color: #e0c212;
+}
+
+nav a{
+    position: absolute;
+    float: left; 
+    color: #fff;
+    width: auto;
+    margin: 0.8em;
+    font-size: 1.5em;
+    font-family: "verdana";
+    list-style: none; 
+    margin-top: 11.8em;
+    margin-left: 17em;
+}
+
+nav a{
+    text-decoration: none;
+    color: #f0f0ff;
+    font-family: helvetica;
+}
+
+nav a:hover{
+    color: #e0c212;
 }
 
 .container {
