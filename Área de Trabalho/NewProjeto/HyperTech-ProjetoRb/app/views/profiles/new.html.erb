@@ -1,0 +1,10 @@
+<%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
+
+<%= f.input :country %>
+<%= f.input :adress %>
+<%= f.input :phone %>
+<%= f.input :bank_account %>
+
+<%= f.submit "Forneça os dados restantes", class: "btn btn-primary"%>
+
+<%end%>

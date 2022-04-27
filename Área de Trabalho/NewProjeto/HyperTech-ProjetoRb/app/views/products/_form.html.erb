@@ -1,0 +1,26 @@
+<<%= simple_form_for(@product) do |f| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :title, input_html: { class: 'form-control', placeholder: "Digite o titulo do seu produto" } %> 
+    <%= f.input :description, input_html: { class: 'form-control', placeholder: "Digite a descrição do seu produto" } %>
+    <%= f.input :image, as: :file %>
+    <%= f.input :price, input_html: { class: 'form-control', placeholder: "Informe o preço aqui" } %>
+    <%= f.association :category, label_method: :c_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit,"Criar Produto", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

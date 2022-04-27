@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+    <%= current_user.username %>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li>
+    <%= link_to "Editar Conta", edit_user_registration_path, class: "dropdown-item"%>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+    <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    </li>
+  </ul>
+</div>
+
+<% else %>
+
+<%=link_to "Login", user_session_path, class: "btn btn-info btn-lg" %>
+
+<% end %>
