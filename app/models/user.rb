@@ -17,5 +17,5 @@ validates :email, presence: true
 validates :email, uniqueness: true 
 validates :encrypted_password, presence: true
 
-validates :country, :adress, :phone, :bank_account, presence: true, on: :update
+
 end
