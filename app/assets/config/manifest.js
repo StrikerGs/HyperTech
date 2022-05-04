@@ -9,3 +9,5 @@
 //= link home/bootstrap.min.js
 //= link home/magnify/jquery.magnific-popup.min.js
 //= link form.css
+ //= link jquery_ujs.js
+//= link jquery.js

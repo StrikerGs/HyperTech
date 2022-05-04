@@ -85,3 +85,7 @@ gem "simple_form", "~> 5.1"
 
 
 gem "jquery-rails", "~> 4.4"
+
+gem "pundit", "~> 2.2"
+
+gem "rolify", "~> 6.0"
