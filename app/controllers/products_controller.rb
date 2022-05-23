@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     current_page = (params[:page] || 1).to_i
     @products = Product.order(created_at: :desc).page(current_page).per(2)
+    authorize @products
   end
 
   # GET /products/1 or /products/1.json
@@ -15,6 +16,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = current_user.products.new
+    authorize @product
   end
 
   # GET /products/1/edit
@@ -24,6 +26,7 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = current_user.products.new(product_params)
+    authorize @product
 
     respond_to do |format|
       if @product.save
