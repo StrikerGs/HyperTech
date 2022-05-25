@@ -1,0 +1,29 @@
+<div id="<%= dom_id product %>">
+  <p>
+    <strong>Name:</strong>
+    <%= product.title %>
+  </p>
+
+<p>
+
+<strong>Imagem:</strong>
+<%= image_tag product.image, style: "width: 150px; height 150px;" %>
+
+</p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= product.price %>
+  </p>
+
+  <p>
+  <strong>Pagamento:</strong>
+  <%= button_to "Compre agora", checkout_create_path, params: {id: product.id}, remote: true %>
+  </p>
+
+</div>

@@ -1,0 +1,19 @@
+<%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
+
+<div class="form-inputs">
+ <%= f.collection_check_boxes :role_ids, Role.where(name: 'vendedor'), :id, :name %>
+<%= f.input :country, as: :string %>
+<%= f.input :adress, required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Endereço" }  %>
+<%= f.input :phone, required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Telefone" }  %>
+<%= f.input :bank_account, required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Conta bancária" }  %> 
+</div>
+
+<%= f.submit "Forneça os dados restantes", class: "btn btn-primary"%>
+
+<%end%>
