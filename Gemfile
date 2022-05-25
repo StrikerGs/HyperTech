@@ -89,3 +89,5 @@ gem "jquery-rails", "~> 4.4"
 gem "pundit", "~> 2.2"
 
 gem "rolify", "~> 6.0"
+
+gem "stripe", "~> 6.2"

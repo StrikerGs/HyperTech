@@ -21,4 +21,9 @@
     <%= product.price %>
   </p>
 
+  <p>
+  <strong>Pagamento:</strong>
+  <%= button_to "Compre agora", checkout_create_path, params: {id: product.id}, remote: true %>
+  </p>
+
 </div>
