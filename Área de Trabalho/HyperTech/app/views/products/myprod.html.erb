@@ -1,0 +1,27 @@
+<h1>Meus Produtos</h1>
+
+<%= link_to "Novo Produto", new_product_path, class:"btn btn-success" if user_signed_in? if policy(:product).new? %>
+
+<section class="produtos">
+  <% @products.each do |product|  %>
+    <% if product.user.id == current_user.id %>
+        
+      <div class="destaque">
+        <div class="img-container mb-3">
+          <%= image_tag(product.image, style: "height:200px;, width: 200px;") %>
+        </div>
+        <h5 class="text-uppercase"><%= product.title %></h5>
+          <p class="mb-0">
+             <%=  product.description %>
+          </p>  
+    
+          <p>
+         <%= link_to "Mostrar o Produto", product, class: 'btn btn-outline-primary' %>
+          </p>
+
+      </div>
+    <%end%>
+  <%end%>
+    
+ </section>
+

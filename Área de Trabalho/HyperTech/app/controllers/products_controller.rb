@@ -1,16 +1,31 @@
 class ProductsController < ApplicationController
+  include Paginable
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ edit update destroy ]
 
   # GET /products or /products.json
   def index
-    current_page = (params[:page] || 1).to_i
-    @products = Product.order(created_at: :desc).page(current_page).per(2)
+    
+    @products = Product.includes([image_attachment: :blob], [:user], [:category]).filter_by_category(params[:category_id]).order(created_at: :desc).page(current_page).per(7)
+
+    @categories = Category.all
     authorize @products
+  end
+
+  # GET /products/myproduct
+  def myprod
+
+    @products = Product.includes([image_attachment: :blob], [:user]).filter_by_category(params[:category_id]).order(created_at: :desc).page(current_page).per(7)
+    authorize @products
+
   end
 
   # GET /products/1 or /products/1.json
   def show
+
+    @product = Product.includes([comments: :user]).find(params[:id])
+    authorize @product
+
   end
 
   # GET /products/new

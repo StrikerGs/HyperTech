@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_01_175417) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_07_190833) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,6 +45,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_175417) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "product_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -53,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_175417) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
+    t.integer "sales_count", default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -90,6 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_175417) do
     t.string "adress"
     t.string "phone"
     t.string "bank_account"
+    t.integer "cpf"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -105,6 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_175417) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
 end

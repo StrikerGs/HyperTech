@@ -1,6 +1,8 @@
 class MainController < ApplicationController
+  include Paginable
+
   def index
-    current_page = (params[:page] || 1).to_i
-    @products = Product.order(created_at: :desc).page(current_page).per(2)
+    
+    @products = Product.includes([image_attachment: :blob]).order(created_at: :desc).page(current_page).per(4)
   end
 end

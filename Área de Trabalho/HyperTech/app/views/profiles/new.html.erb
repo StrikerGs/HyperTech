@@ -12,6 +12,9 @@
 <%= f.input :bank_account, required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Conta bancária" }  %> 
+<%= f.input :cpf, required: true,
+                autofocus: true,
+                input_html: { autocomplete: "CPF" }  %> 
 </div>
 
 <%= f.submit "Forneça os dados restantes", class: "btn btn-primary"%>

@@ -1,0 +1,15 @@
+.produtos {
+
+    display: flex;
+   
+    flex-wrap: wrap;
+
+}
+
+.botoes {
+
+    display: flex;
+    justify-content: left;
+    margin: 5px;
+
+}

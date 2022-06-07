@@ -1,6 +1,17 @@
 <div id="<%= dom_id product %>">
+
   <p>
-    <strong>Name:</strong>
+  <strong>Vendedor:</strong>
+  <%= product.user.username %>
+  </p>
+
+<p>
+<strong>Categoria:</strong>
+<%= product.category.c_name %>
+</p>
+
+  <p>
+    <strong>Nome do produto:</strong>
     <%= product.title %>
   </p>
 
@@ -12,13 +23,18 @@
 </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Descrição:</strong>
     <%= product.description %>
+  </p>
+  
+  <p>
+   <strong>Vendidos:</strong>
+   <%= product.sales_count %>
   </p>
 
   <p>
-    <strong>Price:</strong>
-    <%= product.price %>
+    <strong>Preço:</strong>
+    <%= number_to_currency(product.price/100) %>
   </p>
 
   <p>

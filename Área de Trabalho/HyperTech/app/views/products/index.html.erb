@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
 
@@ -12,3 +12,38 @@
 </div>
 
 <%= link_to "Novo Produto", new_product_path, class:"btn btn-success" if user_signed_in? if policy(:product).new? %>
+
+-->
+
+
+<div> 
+
+<%= link_to "Meus Produtos", product_myprod_path(@products), class: "btn btn-primary" if policy(:product).myprod?%>
+
+
+    <% @categories.each do |category|%>
+    
+    <%= link_to category.c_name, products_url(category_id: category.id ), class: "btn btn-outline-info" %>
+  
+    <% end %>
+
+</div>
+        <section class="produtos">
+        
+          <% @products.each do |product| %>
+            <div class="destaque">
+              <div class="img-container mb-3">
+                <%= image_tag(product.image, style: "height:200px;, width: 200px;") %>
+              </div>
+              <h5 class="text-uppercase"><%= product.title %></h5>
+              <p class="mb-0">
+                <%=  product.description %>
+              </p>  
+              <p><%= link_to "Mostrar o Produto", product, class: 'btn btn-outline-primary' %></p>
+
+            </div>
+          <%end%>
+    
+          </section>
+
+           <%= render 'main/paginacao'%>

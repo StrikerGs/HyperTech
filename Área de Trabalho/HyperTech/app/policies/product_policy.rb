@@ -12,7 +12,13 @@ class ProductPolicy < ApplicationPolicy
   
   def index?
 
-    user&.has_role?(:vendedor) || user&.has_role?(:admin)
+   true
+
+  end
+
+  def myprod?
+
+    user&.has_role?(:vendedor)
 
   end
 

@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   def user_params
 
-   params.require(:user).permit(:country, :adress, :phone, :bank_account, role_ids: [])
+   params.require(:user).permit(:country, :adress,:cpf, :phone, :bank_account, role_ids: [])
 
   end
 end
