@@ -14,6 +14,16 @@ class User < ApplicationRecord
          :trackable, 
          :validatable
 
+         def to_s
+          email
+        end
+      
+        after_create do
+          customer = Stripe::Customer.create(email: email)
+          update(stripe_customer_id: customer.id)
+        end
+      
+
 validates :username, presence: true
 validates :email, presence: true 
 validates :email, uniqueness: true 
