@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
         @product.comments.create(comment_params.to_h.merge!({user_id: current_user.id}))
         redirect_to product_path(@product), notice: "O comentário foi feito com sucesso."
 
+
     end
 
     def destroy
