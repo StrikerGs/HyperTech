@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "myprod", to: "products#myprod"
   end
   resources :profiles, only: %i[new create]
-  resources :webhooks, only: %i[:create]
+  resources :webhooks, only: [:create]
   post "checkout/create", to: "checkout#create"
   get 'main/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
