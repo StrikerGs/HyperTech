@@ -1,12 +1,14 @@
 class ProfilesController < ApplicationController
   def new
     @profile = current_user
+    
   end
 
   def create
 
      @profile = current_user
      
+
      if @profile.update(user_params)
 
       redirect_to root_path

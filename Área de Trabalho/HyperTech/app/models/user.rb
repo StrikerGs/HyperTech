@@ -18,6 +18,7 @@ validates :username, presence: true
 validates :email, presence: true 
 validates :email, uniqueness: true 
 validates :encrypted_password, presence: true
+validates :country, :adress,:cpf, :phone, :bank_account, presence: true, on: :update
 validate :password_complexity
 
 after_create :assign_default_role

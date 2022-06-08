@@ -1,22 +1,27 @@
+
+<% if user_signed_in? %>
+
+<%if current_user.has_role?(:vendedor)%>
+<h1>Atualize suas informações aqui:</h2>
+<%end%>
+
+
 <%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
 
-<div class="form-inputs">
+
+<%if current_user.has_role?(:cliente) %>
  <%= f.collection_check_boxes :role_ids, Role.where(name: 'vendedor'), :id, :name %>
+ <%end%>
 <%= f.input :country, as: :string %>
-<%= f.input :adress, required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Endereço" }  %>
-<%= f.input :phone, required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Telefone" }  %>
-<%= f.input :bank_account, required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Conta bancária" }  %> 
-<%= f.input :cpf, required: true,
-                autofocus: true,
-                input_html: { autocomplete: "CPF" }  %> 
-</div>
+<%= f.input :adress %>
+<%= f.input :phone %>
+<%= f.input :bank_account %> 
+<%= f.input :cpf %> 
+
+<br>
 
 <%= f.submit "Forneça os dados restantes", class: "btn btn-primary"%>
 
 <%end%>
+
+<%end %>

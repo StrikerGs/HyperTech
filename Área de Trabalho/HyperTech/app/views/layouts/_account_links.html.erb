@@ -3,13 +3,18 @@
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
     <%= current_user.username %> ||
+    
     <%= current_user.roles.first.name %>
+
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <li>
     <%= link_to "Editar Conta", edit_user_registration_path, class: "dropdown-item"%>
     </li>
      <li><hr class="dropdown-divider"></li>
+     <li>
+      <%= link_to "Informações do vendedor", new_profile_path, class: "dropdown-item" if current_user.has_role?(:vendedor) %>
+     </li>
     <li>
     <%= link_to "Categorias", categories_path, class: "dropdown-item" if policy(:category).index? %>
     </li>
