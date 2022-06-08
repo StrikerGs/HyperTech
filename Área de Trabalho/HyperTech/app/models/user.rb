@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require 'pry'
   rolify
   has_many :products, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -20,7 +21,9 @@ class User < ApplicationRecord
       
         after_create do
           customer = Stripe::Customer.create(email: email)
-          update(stripe_customer_id: customer.id)
+           
+          
+          self.update_attribute(:stripe_customer_id, customer.id)
         end
       
 
