@@ -10,5 +10,16 @@ class Product < ApplicationRecord
 
     scope :filter_by_category, -> (category_id) {where category_id: category_id if category_id.present? }
 
+    def to_s
+        title
+    end
+    
+    after_create do
+        product = Stripe::Product.create(name: title)
+        price = Stripe::Price.create(product: product, unit_amount: self.price, currency: "brl")
+        self.update_attribute(:stripe_product_id, product.id)
+      end
+    
+    
 
 end
