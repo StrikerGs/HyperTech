@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  require 'pry'
+
   rolify
   has_many :products, dependent: :destroy
   has_many :comments, dependent: :destroy
