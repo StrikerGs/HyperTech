@@ -18,6 +18,8 @@ class Product < ApplicationRecord
         product = Stripe::Product.create(name: title)
         price = Stripe::Price.create(product: product, unit_amount: self.price, currency: "brl")
         self.update_attribute(:stripe_product_id, product.id)
+        self.update_attribute(:stripe_price_id, price.id)
+
       end
     
     
