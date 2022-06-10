@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: %i[new create]
   resources :webhooks, only: [:create]
+  get "sucess", to: "checkout#sucess"
+  get "cancel", to: "checkout#cancel"
   post "checkout/create", to: "checkout#create"
   get 'main/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
