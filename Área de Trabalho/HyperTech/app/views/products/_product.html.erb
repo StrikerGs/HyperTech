@@ -38,8 +38,13 @@
   </p>
 
   <p>
-  <strong>Pagamento:</strong>
-  <%= button_to "Compre agora", checkout_create_path, params: {id: product.id}, remote: true %>
+  <strong>Adicionar ao Carrinho:</strong>
+  <% if @cart.include?(product) %>
+   <%= button_to "Remover do carrinho", remove_from_cart_path(product), method: :delete %>
+  <% else %>
+   <%= button_to "Adicionar ao carrinho", add_to_cart_path(product) %>
+  <% end %>
   </p>
+
 
 </div>

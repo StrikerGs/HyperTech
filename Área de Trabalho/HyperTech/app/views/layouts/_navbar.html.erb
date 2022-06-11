@@ -29,11 +29,23 @@
                 <%= link_to "Torne-se um Vendedor", new_profile_path, class: "nav-link" if current_user.has_role?(:cliente) %>
                 <%end%>
               </li>
+              <li clas="nav-item">
+              </li>
               <li class="nav-item">
                 <%= link_to "Produtos", products_url, class:"nav-link" %>
               </li>
+              <li class="nav-item">
+              <%= render "layouts/account_links"%>
+              </li>
+             <li>
+             |
+             </li>
+              <li class="nav-item">
+            <%= render "layouts/cart"%>
+            </li>
             </ul>
-          <%= render "layouts/account_links"%>
+  
+          
           </div>
         </nav>
       </div>

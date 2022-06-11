@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get "cancel", to: "checkout#cancel"
   post "checkout/create", to: "checkout#create"
   get 'main/index'
+
+  post "products/add_to_cart/:id", to: "products#add_to_cart", as: "add_to_cart"
+  delete "products/remove_from_cart/:id", to: "products#remove_from_cart", as: "remove_from_cart"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

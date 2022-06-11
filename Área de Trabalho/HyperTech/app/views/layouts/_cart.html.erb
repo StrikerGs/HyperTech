@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+    Carrinho
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li class="dropdown-item">
+       <% @cart.each do |product| %>
+      <%= product.title %>
+      <br>
+    <% end %>
+    <% if @cart.present? %>
+
+    <%= button_to "Compre agora", checkout_create_path, remote: true, data: {disable_with: "validando..."} %>
+    <% end %>
+    </li>
+  </ul>
+</div>
+
+<% end %>

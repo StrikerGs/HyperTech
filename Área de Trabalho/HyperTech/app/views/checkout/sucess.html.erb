@@ -1,3 +1,15 @@
 <h1>Compra realizada com sucesso</h1>
 
+Checkout status: <%= @session_with_expand.payment_status %>
+<br>
+Quantia paga: 
+<%= @session_with_expand.amount_total.to_f %>
+<%= @session_with_expand.currency %>
+<br>
+<% @session_with_expand.line_items.data.each do |line_item| %>
+   <br>
+   <% product = Product.find_by(stripe_product_id: line_item.price.product) %>
+   <%= product.title %>
+   <%= image_tag product.image, style: "width: 150px; height 150px;" %>
 
+<% end %>
