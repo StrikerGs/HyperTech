@@ -15,7 +15,7 @@
     <%= f.input :title, input_html: { class: 'form-control', placeholder: "Digite o titulo do seu produto" } %> 
     <%= f.input :description, input_html: { class: 'form-control', placeholder: "Digite a descrição do seu produto" } %>
     <%= f.input :image, as: :file %>
-    <%= f.input :price, input_html: { class: 'form-control', placeholder: "Informe o preço aqui" } %>
+    <%= f.input :price_cents, input_html: { class: 'form-control', placeholder: "Informe o preço aqui" } %>
     <%= f.association :category, label_method: :c_name %>
   </div>
 

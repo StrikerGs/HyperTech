@@ -14,6 +14,8 @@ class Product < ApplicationRecord
         title
     end
 
+    monetize :price, as: :price_cents
+
     def to_builder
         Jbuilder.new do |product|
           product.price stripe_price_id
@@ -23,7 +25,7 @@ class Product < ApplicationRecord
     
     after_create do
         product = Stripe::Product.create(name: title)
-        price = Stripe::Price.create(product: product, unit_amount: self.price, currency: "brl")
+        price = Stripe::Price.create(product: product, unit_amount: self.price, currency: self.currency )
         self.update_attribute(:stripe_product_id, product.id)
         self.update_attribute(:stripe_price_id, price.id)
 
@@ -31,7 +33,7 @@ class Product < ApplicationRecord
     
     after_update :create_and_assign_new_stripe_price, if: :saved_change_to_price?
     def create_and_assign_new_stripe_price 
-      price = Stripe::Price.create(product: self.stripe_product_id, unit_amount: self.price, currency: "brl")
+      price = Stripe::Price.create(product: self.stripe_product_id, unit_amount: self.price, currency: self.currency )
       update(stripe_price_id: price.id)
 
     end

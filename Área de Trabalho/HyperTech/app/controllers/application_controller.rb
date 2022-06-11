@@ -12,7 +12,9 @@ include Pundit::Authorization
   end
 
   def load_cart
+  
     @cart = Product.find(session[:cart])
+   
   end
 
 rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

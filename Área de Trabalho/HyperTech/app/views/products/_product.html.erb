@@ -34,7 +34,8 @@
 
   <p>
     <strong>Preço:</strong>
-    <%= number_to_currency(product.price/100) %>
+    <%= product.currency %>
+    <%= (product.price_cents) %>
   </p>
 
   <p>
