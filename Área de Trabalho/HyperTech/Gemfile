@@ -100,4 +100,4 @@ gem "money-rails", "~> 1.15"
 
 gem "wicked_pdf", "~> 2.6"
 
-gem "wkhtmltopdf-heroku", "~> 2.12", group: :production
+gem "wkhtmltopdf-heroku", '~> 2.12.6.0', group: :production
