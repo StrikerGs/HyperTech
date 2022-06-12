@@ -6,7 +6,7 @@ class RelatoriosController < ApplicationController
             @users = User.all
             format.html
             format.pdf do
-              render pdf: "file_name",template: "relatorios/relatory", formats: [:html], layout: "pdf"   # Excluding ".pdf" extension.
+              render pdf: "file_name",template: "relatorios/relatory", formats: [:html]   # Excluding ".pdf" extension.
             end
           end
 
