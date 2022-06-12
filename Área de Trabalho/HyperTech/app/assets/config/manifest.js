@@ -10,5 +10,6 @@
 //= link home/magnify/jquery.magnific-popup.min.js
 //= link form.css
 //= link home/produtos.css
- //= link jquery_ujs.js
+//= link pdf.css
+//= link jquery_ujs.js
 //= link jquery.js
