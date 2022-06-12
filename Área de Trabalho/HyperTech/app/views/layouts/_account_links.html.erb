@@ -16,8 +16,13 @@
      <li>
       <%= link_to "Informações do vendedor", new_profile_path, class: "dropdown-item" if current_user.has_role?(:vendedor) %>
      </li>
+     <li><hr class="dropdown-divider"></li>
     <li>
     <%= link_to "Categorias", categories_path, class: "dropdown-item" if policy(:category).index? %>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+    <%= link_to "Relatorio", relatory_path(format: :pdf), class: "dropdown-item" if current_user.has_role?(:admin) %>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
