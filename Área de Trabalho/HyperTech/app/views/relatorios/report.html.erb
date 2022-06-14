@@ -1,0 +1,69 @@
+<div style="font-family: arial; font-size:20px;">
+ <h1>Relatorio de Usuarios Cadastrados no site:</h1>
+
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th>Nome:</th>
+<th>   </th>
+<th>Email:</th>
+<th> </th>
+<th>Funcao:</th>
+</tr>
+</thead>
+<tbody >
+<% @users.each do |user| %>
+<tr>
+<td><h3><%= user.username %></h3></td>
+<td>   </td>
+<td><h3><%= user.email %></h3></td>
+<td>   </td>
+<td><h3><%= user.roles.first.name %></h3></td>
+</tr>
+</tbody>
+<%end%>
+</table>
+</div>
+</div>
+
+<style type="text/css">
+table{
+
+border-collapse: collapse;
+margin-bottom: 1em;
+width: 100%;
+
+}
+
+table tr{
+
+page-break-inside: avoid;
+
+}
+
+table thead tr th {
+
+  background-color: #1a215c;
+  color: #fff;
+  border: 1px solid #DDDDDD;
+  min-width: 0.6em;
+  padding: 5px;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bold; 
+
+}
+
+table tbody tr td {
+
+  border: 1px solid #DDDDDD;
+  min-width: 0.6em;
+  padding: 5px;
+  vertical-align: top;
+  font-size: 15px;
+
+}
+
+</style>
+

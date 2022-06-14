@@ -1,12 +1,12 @@
 class RelatoriosController < ApplicationController
 
-    def relatory
+    def report
 
         respond_to do |format|
             @users = User.all
             format.html
             format.pdf do
-              render pdf: "file_name",template: "relatorios/relatory", formats: [:html]   # Excluding ".pdf" extension.
+              render pdf: "file_name",template: "relatorios/report", formats: [:html]   # Excluding ".pdf" extension.
             end
           end
 
