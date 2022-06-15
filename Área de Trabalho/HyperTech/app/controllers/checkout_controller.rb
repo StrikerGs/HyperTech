@@ -3,7 +3,7 @@ class CheckoutController < ApplicationController
     def create
         @session = Stripe::Checkout::Session.create({
            customer: current_user.stripe_customer_id,
-            payment_method_types: ['card'],
+            payment_method_types: ['card','boleto'],
             billing_address_collection: 'required',
             shipping_address_collection: {
             allowed_countries: ['BR'],},
