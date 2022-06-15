@@ -1,51 +1,68 @@
 <div id="<%= dom_id product %>">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <p>
-  <strong>Vendedor:</strong>
-  <%= product.user.username %>
-  </p>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"> <%= product.title %> </h3>
+            <h6 class="card-subtitle">Vendedor: <%= product.user.username %></h6>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6">
+                    <div class="white-box text-center"><%= image_tag product.image, style: "width: 430px; height 600px;" %></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Descrição do Produto:</h4>
+                    <p><%= product.description %></p>
+                    <h2 class="mt-5">
+                       R$ <%= (product.price_cents) %>
+                    </h2>
+                    
+                        <% if @cart.include?(product) %>
+                        <%= button_to "Remover do carrinho", remove_from_cart_path(product), method: :delete %>
+                        <% else %>
+                        <%= button_to "Adicionar ao carrinho", add_to_cart_path(product) %>
+                        <% end %>
 
-<p>
-<strong>Categoria:</strong>
-<%= product.category.c_name %>
-</p>
-
-  <p>
-    <strong>Nome do produto:</strong>
-    <%= product.title %>
-  </p>
-
-<p>
-
-<strong>Imagem:</strong>
-<%= image_tag product.image, style: "width: 150px; height 150px;" %>
-
-</p>
-
-  <p>
-    <strong>Descrição:</strong>
-    <%= product.description %>
-  </p>
-  
-  <p>
-   <strong>Vendidos:</strong>
-   <%= product.sales_count %>
-  </p>
-
-  <p>
-    <strong>Preço:</strong>
-    <%= product.currency %>
-    <%= (product.price_cents) %>
-  </p>
-
-  <p>
-  <strong>Adicionar ao Carrinho:</strong>
-  <% if @cart.include?(product) %>
-   <%= button_to "Remover do carrinho", remove_from_cart_path(product), method: :delete %>
-  <% else %>
-   <%= button_to "Adicionar ao carrinho", add_to_cart_path(product) %>
-  <% end %>
-  </p>
-
-
+                    <h3 class="box-title mt-5">Vendidos:  <%= product.sales_count %> </h3> 
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+
+<style type="text/css">
+
+body{
+    background-color: #edf1f5;
+    margin-top:20px;
+}
+.card {
+    margin-bottom: 30px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0;
+}
+.card .card-subtitle {
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #8898aa;
+}
+.table-product.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f3f8fa!important
+}
+.table-product td{
+    border-top: 0px solid #dee2e6 !important;
+    color: #728299!important;
+}
+
+
+</style>
