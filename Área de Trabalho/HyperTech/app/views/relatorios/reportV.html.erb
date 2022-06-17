@@ -37,9 +37,7 @@
 <% if user.has_role?(:vendedor)%>
 <td><h3><%= user.products.count %> </h3></td>
 <% user.products.each do |product| %>
-<% vendidos = product.sales_count %>
-<% vendidos = vendidos + product.sales_count %> 
-<td><h3><%= vendidos %></h3></td>   
+<td><h3><%= product.sales_count %> </h3></td>
 <%end%>
 <%end%>
 </tr>
