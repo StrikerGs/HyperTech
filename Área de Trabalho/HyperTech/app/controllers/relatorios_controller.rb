@@ -30,7 +30,7 @@ class RelatoriosController < ApplicationController
     def reportP
 
       respond_to do |format|
-        @products = Product.all.includes([:user])
+        @products = Product.all
         format.html
         format.pdf do
           render pdf: "file_name",template: "relatorios/reportP", formats: [:html]   # Excluding ".pdf" extension.
