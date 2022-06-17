@@ -37,10 +37,10 @@
 <% if user.has_role?(:vendedor)%>
 <td><h3><%= user.products.count %> </h3></td>
 <% user.products.each do |product| %>
-<% @vendidos = 0%>
-<% @vendidos =+ product.sales_count %>
+<% vendidos = product.sales_count%>
+<% soma =+ vendidos %>
 <%end%>
-<td><h3><%= @vendidos %> </h3></td>
+<td><h3><%= soma %> </h3></td>
 <%end%>
 </tr>
 </tbody>
