@@ -1,6 +1,6 @@
 <div style="font-family: arial; font-size:20px;">
 <div class="titulo">
- <h1>Relatorio de Usuarios Cadastrados no site:</h1>
+ <h1>Controle do vendedor:</h1>
 </div>
 <div class="table-responsive">
 <table class="table">
@@ -37,7 +37,9 @@
 <% if user.has_role?(:vendedor)%>
 <td><h3><%= user.products.count %> </h3></td>
 <% user.products.each do |product| %>
-<td><h3><%= product.sales_count %> </h3></td>
+<% vendidos = 0 %>
+<% vendidos =+ product.sales_count %> 
+<td><h3><%= vendidos %></h3></td>   
 <%end%>
 <%end%>
 </tr>
