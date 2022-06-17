@@ -12,7 +12,7 @@
     <% end %>
     <% if @cart.present? %>
 
-    <%= button_to "Compre agora", checkout_create_path, remote: true, data: {disable_with: "validando..."} %>
+    <%= button_to "Compre agora", checkout_create_path, remote: true, data: {disable_with: "validando..."}, class: "btn btn-warning" %>
     <% end %>
     </li>
   </ul>

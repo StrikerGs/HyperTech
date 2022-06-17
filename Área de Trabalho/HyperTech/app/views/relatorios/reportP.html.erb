@@ -17,6 +17,7 @@
 <tbody >
 
 <% @products.each do |product| %>
+
 <tr>
 <td><h3><%= product.id %></h3></td>
 
@@ -31,11 +32,74 @@
 <td><h3><%= product.sales_count %> </h3></td>
 
 </tr>
+
 </tbody>
 <%end%>
 </table>
 </div>
 </div>
+
+
+<div class="titulo2">
+<h1>Produtos vendidos:</h1>
+</div>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th>Id:</th>
+<th>Nome:</th>
+<th>Preco:</th>
+<th>Nome do Vendedor:</th>
+<th>Data de criacao:</th>
+<th>Numero de vendas:</th>
+</tr>
+</thead>
+<tbody >
+
+<% @products.each do |product| %>
+<% if product.sales_count > 0 %>
+<tr>
+<td><h3><%= product.id %></h3></td>
+
+<td><h3><%= product.title %></h3></td>
+
+<td><h3><%= product.price_cents %></h3></td>
+
+<td><h3><%= product.user.username %></h3></td>
+
+<td><h3><%= month_day_comma_year(product.created_at) %></h3></td>
+
+<td><h3><%= product.sales_count %> </h3></td>
+</tr> 
+<%end%>
+</tbody>
+<%end%>
+</table>
+</div>
+</div>
+
+<div>
+<table>
+<thead>
+<tr>
+<th>Total de Rendimentos: </th>
+</tr>
+</thead>
+<tbody>
+<% soma = 0%>
+<% @products.each do |product| %>
+<% if product.sales_count > 0 %>
+<% soma += product.prince_cents %>
+<%end%>
+<%end%>
+<tr>
+<td><h3><%= soma %></h3><td>
+</tr>
+</tbody>
+</table>
+</div>
+
 
 <style type="text/css">
 table{
@@ -83,6 +147,18 @@ table tbody tr td {
   text-align: center;
   margin: 5px;
   padding: 5px;
+}
+
+.titulo2 {
+
+color: #fff;
+background-color: #1a215c;
+border: 1px solid #000000;
+text-align: center;
+margin: 5px;
+padding: 5px;
+page-break-before: always;
+
 }
 </style>
 

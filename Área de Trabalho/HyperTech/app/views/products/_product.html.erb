@@ -18,9 +18,9 @@
                     </h2>
                     
                         <% if @cart.include?(product) %>
-                        <%= button_to "Remover do carrinho", remove_from_cart_path(product), method: :delete %>
+                        <%= button_to "Remover do carrinho", remove_from_cart_path(product), method: :delete, class: "btn btn-primary" %>
                         <% else %>
-                        <%= button_to "Adicionar ao carrinho", add_to_cart_path(product) %>
+                        <%= button_to "Adicionar ao carrinho", add_to_cart_path(product), class: "btn btn-primary" %>
                         <% end %>
 
                     <h3 class="box-title mt-5">Vendidos:  <%= product.sales_count %> </h3> 
