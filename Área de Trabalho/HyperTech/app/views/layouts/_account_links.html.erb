@@ -22,7 +22,13 @@
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
-    <%= link_to "Relatorio", report_path(format: :pdf), class: "dropdown-item" if current_user.has_role?(:admin) %>
+    <%= link_to "Relatorio de Clientes", report_path(format: :pdf), class: "dropdown-item" if current_user.has_role?(:admin) %>
+    </li>
+    <li>
+    <%= link_to "Relatorio de Vendedores", reportV_path(format: :pdf), class: "dropdown-item" if current_user.has_role?(:admin) %>
+    </li>
+    <li>
+    <%= link_to "Relatorio de Produtos", reportP_path(format: :pdf), class: "dropdown-item" if current_user.has_role?(:admin) %>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>

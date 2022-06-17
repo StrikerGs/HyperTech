@@ -1,6 +1,6 @@
 <div class="card mb-3" >
   <div class="card-body">
-    <h5 class="card-title"><%= comment.created_at %></h5>
+    <h5 class="card-title"><%= month_day_comma_year(comment.created_at) %></h5>
      <h6 class="card-subtitle mb-2 text-muted">Usuario: <%= comment.user.username %></h6>
     <p class="card-text"><%= comment.body %></p>
     <%= link_to "Excluir comentário" ,product_comment_path(@product, comment), method: :delete, data: {confirm: "Você tem certeza?"}, class:"btn btn-danger" if policy(comment).destroy? %> 

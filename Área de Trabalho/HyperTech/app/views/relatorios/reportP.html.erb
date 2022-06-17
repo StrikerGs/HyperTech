@@ -1,40 +1,35 @@
-
-
-
 <div style="font-family: arial; font-size:20px;">
 <div class="titulo">
- <h1>Controle de clientes:</h1>
+ <h1>Controle de produtos:</h1>
 </div>
 <div class="table-responsive">
 <table class="table">
 <thead>
 <tr>
+<th>Id:</th>
 <th>Nome:</th>
-<th>Email:</th>
-<th>Funcao:</th>
-<th>Data de entrada:</th>
-<th>Acessos:</th>
-<th>Ultimo acesso:</th>
+<th>Preco:</th>
+<th>Nome do Vendedor:</th>
+<th>Data de criacao:</th>
+<th>Numero de vendas:</th>
 </tr>
 </thead>
 <tbody >
 
-<% @users.with_role(:cliente).each do |user| %>
+<% @products.each do |product| %>
 <tr>
-<td><h3><%= user.username %></h3></td>
+<td><h3><%= product.id %></h3></td>
 
-<td><h3><%= user.email %></h3></td>
+<td><h3><%= product.title %></h3></td>
 
-<td><h3><%= user.roles.first.name %></h3></td>
+<td><h3><%= product.price_cents %></h3></td>
 
-<td><h3><%= month_day_comma_year(user.created_at) %></h3></td>
+<td><h3><%= product.user.username %></h3></td>
 
-<td><h3><%= user.sign_in_count %> acessos</h3></td>
-<% if user.sign_in_count > 0 %>
-<td><h3><%= month_day_comma_year(user.last_sign_in_at) %></h3></td>
-<%else%>
-<td><h3> </h3></td>
-<%end%>
+<td><h3><%= month_day_comma_year(product.created_at) %></h3></td>
+
+<td><h3><%= product.sales_count %> </h3></td>
+
 </tr>
 </tbody>
 <%end%>

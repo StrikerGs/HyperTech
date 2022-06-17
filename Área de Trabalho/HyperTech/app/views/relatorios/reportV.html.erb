@@ -1,9 +1,6 @@
-
-
-
 <div style="font-family: arial; font-size:20px;">
 <div class="titulo">
- <h1>Controle de clientes:</h1>
+ <h1>Relatorio de Usuarios Cadastrados no site:</h1>
 </div>
 <div class="table-responsive">
 <table class="table">
@@ -15,11 +12,13 @@
 <th>Data de entrada:</th>
 <th>Acessos:</th>
 <th>Ultimo acesso:</th>
+<th>Produtos criados</th>
+<th>Produtos vendidos</th>
 </tr>
 </thead>
 <tbody >
 
-<% @users.with_role(:cliente).each do |user| %>
+<% @users.with_role(:vendedor).each do |user| %>
 <tr>
 <td><h3><%= user.username %></h3></td>
 
@@ -34,6 +33,12 @@
 <td><h3><%= month_day_comma_year(user.last_sign_in_at) %></h3></td>
 <%else%>
 <td><h3> </h3></td>
+<%end%>
+<% if user.has_role?(:vendedor)%>
+<td><h3><%= user.products.count %> </h3></td>
+<% user.products.each do |product| %>
+<td><h3><%= product.sales_count %> </h3></td>
+<%end%>
 <%end%>
 </tr>
 </tbody>
