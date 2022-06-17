@@ -38,7 +38,7 @@
 <td><h3><%= user.products.count %> </h3></td>
 <% user.products.each do |product| %>
 <% vendidos = 0 %>
-<% vendidos += product.sales_count %> 
+<% vendidos = vendidos + product.sales_count %> 
 <td><h3><%= vendidos %></h3></td>   
 <%end%>
 <%end%>
