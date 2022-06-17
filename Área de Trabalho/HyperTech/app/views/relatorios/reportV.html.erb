@@ -38,8 +38,9 @@
 <td><h3><%= user.products.count %> </h3></td>
 <% vendidos = 0 %>
 <% user.products.each do |product| %>
-<% vendidos += product.sales_count %>
-<td><h3><%= vendidos %></h3></td>
+<% vendidos = product.sales_count %>
+<% soma =+ vendidos %>
+<td><h3><%= soma %></h3></td>
 <%end%>
 <%end%>
 </tr>
