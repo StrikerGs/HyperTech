@@ -6,7 +6,6 @@ class BuyMailer < ApplicationMailer
   #   en.buy_mailer.product_buy.subject
   #
   def product_buy
-   
     @greeting = "Hi"
     
   
