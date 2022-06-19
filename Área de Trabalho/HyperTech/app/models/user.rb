@@ -49,4 +49,18 @@ def password_complexity
   errors.add :password, 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
 end
 
+def cpfcnpj
+  if (cpf.nil?)  ||  (cpf.empty?)  || (cpf.blank?)
+      errors.add(:cpf.to_s,  "CPF ou CNPJ não preenchido   !!!  ")
+  else
+      if cpf.length ==  14
+          cpf = CPF.new(cpf)
+      if !cpf.valid?
+              errors.add(cpf.formatted.to_s, "CPF  invalido   !!!  ")
+          end
+      end
+  end  
+  
+end 
+
 end

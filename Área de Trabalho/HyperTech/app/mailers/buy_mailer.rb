@@ -6,8 +6,13 @@ class BuyMailer < ApplicationMailer
   #   en.buy_mailer.product_buy.subject
   #
   def product_buy
+   
     @greeting = "Hi"
+    
+  
 
-    mail to: User.first, subject: "Pagamento aceito"
+    mail( 
+      to: "0123guga@gmail.com", 
+      subject: "Pagamento aceito")
   end
 end
