@@ -29,12 +29,9 @@ class WebhooksController < ApplicationController
         product = Product.find_by(stripe_product_id: line_item.price.product)
         product.increment!(:sales_count)
 
-        
-        if session_with_expand.payment_status == "paid"
+         BuyMailer.product_buy(self).delivery_now
 
-         BuyMailer.product_buy.delivery_now
-
-         end
+    
 
         end
       end
