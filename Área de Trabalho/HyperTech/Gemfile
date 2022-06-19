@@ -63,6 +63,7 @@ group :development do
   gem "letter_opener", "~> 1.8"
   gem "bullet"
   gem "pry", "~> 0.14.1"
+  gem "byebug", "~> 11.1"
   gem "wkhtmltopdf-binary", "~> 0.12.6"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -106,4 +107,4 @@ gem "wicked_pdf", "~> 2.6"
 
 gem "wkhtmltopdf-heroku", "~> 2.12", group: :production
 
-gem "byebug", "~> 11.1"
+
