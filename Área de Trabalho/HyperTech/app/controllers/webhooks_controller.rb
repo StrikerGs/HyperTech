@@ -29,7 +29,7 @@ class WebhooksController < ApplicationController
         product = Product.find_by(stripe_product_id: line_item.price.product)
         product.increment!(:sales_count)
 
-         BuyMailer.product_buy(self).delivery_now
+         BuyMailer.product_buy.delivery_now
 
     
 
