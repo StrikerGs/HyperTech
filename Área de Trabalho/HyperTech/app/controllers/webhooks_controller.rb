@@ -1,6 +1,8 @@
 class WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
   
+    @user_email = current_user.email
+
     def create
       payload = request.body.read
       sig_header = request.env['HTTP_STRIPE_SIGNATURE']
@@ -28,12 +30,9 @@ class WebhooksController < ApplicationController
         session_with_expand.line_items.data.each do |line_item| 
         product = Product.find_by(stripe_product_id: line_item.price.product)
         product.increment!(:sales_count)
-
-        BuyMailer.product_buy.deliver_now
-
     
 
-        end
+      end
       end
   
       render json: { message: 'success' }

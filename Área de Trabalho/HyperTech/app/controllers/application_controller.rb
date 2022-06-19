@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :load_cart
 include Pundit::Authorization
 
-  
 
   private
 

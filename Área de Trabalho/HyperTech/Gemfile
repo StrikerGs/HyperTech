@@ -105,3 +105,5 @@ gem "wicked_pdf", "~> 2.6"
 
 
 gem "wkhtmltopdf-heroku", "~> 2.12", group: :production
+
+gem "byebug", "~> 11.1"
