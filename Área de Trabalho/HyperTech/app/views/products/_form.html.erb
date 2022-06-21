@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="form-inputs">
-    <%= f.input :title, input_html: { class: 'form-control', placeholder: "Digite o titulo do seu produto" } %> 
-    <%= f.input :description, input_html: { class: 'form-control', placeholder: "Digite a descrição do seu produto" } %>
-    <%= f.input :image, as: :file %>
-    <%= f.input :price_cents, input_html: { class: 'form-control', placeholder: "Informe o preço aqui" } %>
-    <%= f.association :category, label_method: :c_name %>
+    <%= f.input :title,label: "Nome do produto", input_html: { class: 'form-control', placeholder: "Digite o titulo do seu produto" } %> 
+    <%= f.input :description, label: "Descrição do produto", input_html: { class: 'form-control', placeholder: "Digite a descrição do seu produto" } %>
+    <%= f.input :image, label: "Imagem do produto: ", as: :file %>
+    <%= f.input :price_cents,label: "Preço:", input_html: { class: 'form-control', placeholder: "Informe o preço aqui" } %>
+    <%= f.association :category,label: "Escolha uma categoria:", label_method: :c_name %>
   </div>
 
   <div class="form-actions">

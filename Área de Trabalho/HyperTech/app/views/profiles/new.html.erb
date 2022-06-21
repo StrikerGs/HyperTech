@@ -13,13 +13,13 @@
  <%= f.collection_check_boxes(:role_ids, Role.where(name: 'vendedor'), :id, :name) do |b|
   b.label{ b.check_box(checked: true) + b.text} end%>
  <%end%>
-<%= f.input :country, as: :string %>
-<%= f.input :adress %>
-<%= f.input :phone %>
-<%= f.input :cpf %> 
+<%= f.input :country,label: "Estado", as: :string %>
+<%= f.input :adress, label: "Endereço" %>
+<%= f.input :phone, label: "Telefone" %>
+<%= f.input :cpf, label: "Digite seu CPF:" %> 
 <br>
 <p><strong>Opcional: Nos forneça sua conta bancária para que possamos fazer os repasses mais facilmente.</strong></p>
-<%= f.input :bank_account %> 
+<%= f.input :bank_account, label: "Informe sua conta bancária:" %> 
 
 <br>
 
@@ -28,3 +28,16 @@
 <%end%>
 
 <%end %>
+
+
+<br>
+<br>
+<p align="center"><strong>REGRAS DO VENDEDOR</strong></p>
+<br>
+<ul>
+<li><strong>* CADA VENDEDOR É RESPONSÁVEL POR SEU PRODUTO *</strong></li>
+<li><strong>* É RESPONSABILIDADE DO VENDEDOR REALIZAR UM MEIO DE ENTREGA DE SEUS PRODUTOS *</strong></li>
+<li><strong>* APOS A CONFIRMAÇÃOS DOS DADOS E TORNANDO-SE "VENDEDOR", É DE SUMA IMPORTANTCIA ENVIAR UM EMAIL PARA "0123guga@gmail.com" COM SEU NOME, TELEFONE E SEU PIX *</strong></li>
+<li><strong>* O PAGAMENTO PARA O VENDEDOR DE SEUS PRODUTOS VENDIDOS, É FEITO VIA PIX OU CONTA BANCÁRIA (OPCIONAL) *</strong></li>
+<li><strong>* CADA PRODUTO VENDIDO 15% DELE É DIRECIONADO PARA A PLATAFORMA *</strong></li>
+</ul>

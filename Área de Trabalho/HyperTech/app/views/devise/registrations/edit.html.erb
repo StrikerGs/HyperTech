@@ -5,30 +5,30 @@
 
   <div class="form-inputs">
 
-     <%= f.input :username, required: true, autofocus: true %>
+     <%= f.input :username,label: "Nome", required: true, autofocus: true %>
 
 
     <%= f.input :email, required: true, autofocus: true %>
     <br>
     <p><strong>Para editar suas informações pela primeira vez é necessário que nos forneça informações adicionais:</strong></p>
-    <%= f.input :country, as: :string %>
-    <%= f.input :adress %>
-    <%= f.input :phone %>
-    <%= f.input :cpf %> 
+    <%= f.input :country,label: "Estado", as: :string %>
+    <%= f.input :adress, label: "Endereço" %>
+    <%= f.input :phone, label: "Telefone" %>
+    <%= f.input :cpf, label: "CPF" %> 
 
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password,
+    <%= f.input :password,label: "Nova senha",
                 hint: "Deixe esse campo em branco se não deseja editar.",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%= f.input :password_confirmation,label: "Confirme sua nova senha",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
+    <%= f.input :current_password,label: "Senha atual",
                 hint: "Precisamos da sua senha atual para confirmar as mudanças.",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
