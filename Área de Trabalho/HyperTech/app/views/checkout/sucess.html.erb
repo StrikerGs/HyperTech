@@ -1,15 +1,33 @@
 <h1>Compra realizada com sucesso</h1>
 
-Checkout status: <%= @session_with_expand.payment_status %>
+Status do pagamento: <% if @session_with_expand.payment_status == "paid" %>
+                         <%= "Finalizado"%>
+                         <%end%>
 <br>
-Quantia paga: 
-<%= @session_with_expand.amount_total.to_f %>
-<%= @session_with_expand.currency %>
 <br>
-<% @session_with_expand.line_items.data.each do |line_item| %>
-   <br>
-   <% product = Product.find_by(stripe_product_id: line_item.price.product) %>
-   <%= product.title %>
-   <%= image_tag product.image, style: "width: 150px; height 150px;" %>
 
-<% end %>
+
+
+
+
+<section class="produtos">
+  <% @session_with_expand.line_items.data.each do |line_item| %>
+<% product = Product.find_by(stripe_product_id: line_item.price.product) %>
+        
+      <div class="destaque">
+        <div class="img-container mb-3">
+          <%= image_tag product.image, style: "width: 200px; height 200px;" %>
+        </div>
+        <h5 class="text-uppercase"><%= product.title %></h5>
+          <p class="mb-0">
+        Quantia paga: <%= product.price_cents %>
+          </p>  
+    
+          <p>
+         <%= link_to "Mostrar o Produto", product, class: 'btn btn-outline-primary' %>
+          </p>
+
+      </div>
+    <%end%>
+    
+ </section>
