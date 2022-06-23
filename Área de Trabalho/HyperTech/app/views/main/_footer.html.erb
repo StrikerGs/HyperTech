@@ -24,10 +24,9 @@
 
         <div class="box">
             <h3>Links Rápidos</h3>
-            <a href="./index.html" class="links"> <i class="fas fa-arrow-right"></i> Home </a>
-            <a href="#features" class="links"> <i class="fas fa-arrow-right"></i> Recursos </a>
-            <a href="#products" class="links"> <i class="fas fa-arrow-right"></i> Produtos </a>
-            <a href="#categories" class="links"> <i class="fas fa-arrow-right"></i> Categotias </a>
+            <%= link_to "Home", root_path, class: "links" %>
+            <%= link_to "Produtos", products_url, class: "links" %>
+          
         </div>
 
     </div>
