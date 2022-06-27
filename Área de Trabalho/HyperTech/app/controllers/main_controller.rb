@@ -3,6 +3,6 @@ class MainController < ApplicationController
 
   def index
     
-    @products = Product.includes([image_attachment: :blob]).order(created_at: :desc).page(current_page).per(4)
+    @products = Product.includes([image_attachment: :blob]).order(created_at: :desc).page(current_page).per(5)
   end
 end

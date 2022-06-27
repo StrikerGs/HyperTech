@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     
-    @products = Product.includes([image_attachment: :blob], [:user], [:category]).filter_by_category(params[:category_id]).order(created_at: :desc).page(current_page).per(7)
+    @products = Product.includes([image_attachment: :blob], [:user], [:category]).filter_by_category(params[:category_id]).order(created_at: :desc).page(current_page).per(8)
 
     @categories = Category.all
     authorize @products
